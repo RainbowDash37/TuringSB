@@ -21,7 +21,7 @@ public class Programm {
 		
 		String[] cp = {"r", "add 1", "back"};
 		String[] cpn = {"r"};
-		count.init("*", bp, bpn);
+		count.init("*", cp, cpn);
 		
 		String[] chp = {"END"};
 		String[] chpn = {"goto Parse"};
