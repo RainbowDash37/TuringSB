@@ -8,29 +8,30 @@ public class Programm {
 	State count = new State();
 	State check = new State();
 	
-	int currentState = 0;
+	int currentState = 1;
 	
 	public Programm(){
-		String[] bp = {"goto check"};
+		String[] bp = {"r", "goto check"};
 		String[] bpn = {"l"};
 		back.init("#", bp, bpn);
 		
 		String[] pp = {"write #", "goto count"};
-		String[] ppn = {"r"};
+		String[] ppn = {"r", "goto check"};
 		parse.init("a", pp, ppn);
 		
-		String[] cp = {"r", "add 1", "back"};
+		String[] cp = {"r", "add 1", "goto back"};
 		String[] cpn = {"r"};
 		count.init("*", cp, cpn);
 		
-		String[] chp = {"END"};
-		String[] chpn = {"goto Parse"};
-		check.init("#", chp, chpn);
+		String[] chp = {"print", "END"};
+		String[] chpn = {"goto parse"};
+		check.init("*", chp, chpn);
 		
 	}
 	
 	public String[] sendNext(String parseIn){
 		String[] defa = {""};
+		System.out.println("letzter State: " + stateName());
 		switch (currentState){
 		case 0: {return back.giveNext(parseIn);}
 		case 1: {return parse.giveNext(parseIn);}
@@ -56,10 +57,10 @@ public class Programm {
 	
 	public void changeState(String i){
 		switch(i){
-		case "back": {currentState = 0;}
-		case "parse": {currentState = 1;}
-		case "count": {currentState = 2;}
-		case "check": {currentState = 3;}
+		case "back": {currentState = 0; break;}
+		case "parse": {currentState = 1; break;}
+		case "count": {currentState = 2; break;}
+		case "check": {currentState = 3; break;}
 		}
 	}
 	

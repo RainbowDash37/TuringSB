@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import algo.Machine;
+
 public class StartUp {
 	/**
 	 * @param args
@@ -11,7 +13,14 @@ public class StartUp {
 	 */
 	
 	public static void main(String[] args) throws IOException {
-	    GUI g = new GUI();
+	    Machine m = new Machine();
+	    m.setStart();
+	    while (m.ended == false){
+	    	m.allonsy();
+	    	System.out.println("One Time Run: " + m.head);
+	    	System.out.println("-----");
+	    }
+	    System.out.println("FINISHED!!!");
 	}
 
 }

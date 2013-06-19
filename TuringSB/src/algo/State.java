@@ -18,10 +18,10 @@ public class State {
 	}
 	
 	public String[] giveNext(String parse){
-		if(parse == t){
+		if (parse == t) {
 			return p;
 		}
-		else{
+		else {
 			return pn;
 		}
 	}

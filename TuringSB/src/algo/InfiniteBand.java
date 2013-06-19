@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class InfiniteBand {
 	
-	LinkedList b = new LinkedList();
+	LinkedList<String> b = new LinkedList<String>();
 	
 	public InfiniteBand(){
 		b.add("#");
@@ -23,9 +23,14 @@ public class InfiniteBand {
 	}
 	
 	public String get(int i){
-		String t;
-		t = (String) b.get(i);
-		return t;
+		//System.out.println(i);
+		String tmp = b.get(i);
+		return tmp;
+	}
+	
+	public String[]	getArray(){
+		String[] temp = b.toArray(new String[b.size()]);
+		return temp;
 	}
 	
 }
