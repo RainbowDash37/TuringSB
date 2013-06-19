@@ -40,8 +40,27 @@ public class Programm {
 		}
 	}
 	
-	public void changeState(int i){
-		currentState = i;
+	public String stateName(){
+		switch (currentState){
+		case 0: {return "back";}
+		case 1: {return "parse";}
+		case 2: {return "count";}
+		case 3: {return "check";}
+		default : {return "NULL";}
+		}
+	}
+	
+	public int getStart(){
+		return 1;
+	}
+	
+	public void changeState(String i){
+		switch(i){
+		case "back": {currentState = 0;}
+		case "parse": {currentState = 1;}
+		case "count": {currentState = 2;}
+		case "check": {currentState = 3;}
+		}
 	}
 	
 }

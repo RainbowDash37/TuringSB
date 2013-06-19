@@ -8,7 +8,6 @@ public class InfiniteBand {
 	
 	public InfiniteBand(){
 		b.add("#");
-		b.add("*");
 	}
 	
 	public void add(String a){
